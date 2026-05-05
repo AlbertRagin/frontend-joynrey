@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru" id="html-theme">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Продвинутый пример вёрстки</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Переключатель темы -->
+  <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch" class="theme-switch">
+    <label for="theme-switch" class="theme-label">
+      <span class="theme-icon">🌙</span>
+      <span class="theme-text">Тёмная тема</span>
+    </label>
+  </div>
+
+  <header class="header">
+    <div class="container header__container">
+      <a href="#" class="logo header__logo">Company</a>
+      <nav class="nav header__nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#hero" class="nav__link">Главная</a></li>
+          <li class="nav__item"><a href="#about" class="nav__link">О нас</a></li>
+          <li class="nav__item"><a href="#skills" class="nav__link">Навыки</a></li>
+          <li class="nav__item"><a href="#contacts" class="nav__link">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero__container">
+        <h1 class="hero__title">Добро пожаловать на наш сайт</h1>
+        <p class="hero__subtitle">Мы создаём качественные продукты для вас</p>
+        <a href="#about" class="button hero__button">Узнать больше</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about__container">
+        <h2 class="about__title">О нашей компании</h2>
+        <div class="about__content">
+          <p class="about__text">Мы — команда профессионалов с многолетним опытом в разработке цифровых решений. Наша миссия — создавать продукты, которые делают жизнь проще и удобнее.</p>
+          <ul class="about__features">
+            <li class="about__feature">Опыт более 10 лет</li>
+            <li class="about__feature">Более 100 успешных проектов</li>
+            <li class="about__feature">Команда из 50+ специалистов</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция навыков с прогресс-барами -->
+    <section class="skills" id="skills">
+      <div class="container skills__container">
+        <h2 class="skills__title">Наши навыки</h2>
+        <div class="skills__list">
+          <div class="skill">
+            <div class="skill__info">
+              <span class="skill__name">HTML/CSS</span>
+              <span class="skill__level">95%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-bar__fill" style="--progress: 95%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__info">
+              <span class="skill__name">JavaScript</span>
+              <span class="skill__level">85%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-bar__fill" style="--progress: 85%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__info">
+              <span class="skill__name">React</span>
+              <span class="skill__level">75%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-bar__fill" style="--progress: 75%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+      <div class="container contacts__container">
+        <h2 class="contacts__title">Свяжитесь с нами</h2>
+        <div class="contacts__info">
+          <address class="contacts__address">г. Москва, ул. Примерная, д. 123</address>
+          <p class="contacts__phone">Телефон: +7 (999) 123-45-67</p>
+          <p class="contacts__email">Email: info@company.com</p>
+        </div>
+        <form class="contacts__form" action="#" method="post">
+          <div class="form-group">
+            <label for="name" class="form__label">Имя:</label>
+            <input type="text" id="name" name="name" class="form__input" required>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form__label">Email:</label>
+            <input type="email" id="email" name="email" class="form__input" required>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form__label">Сообщение:</label>
+            <textarea id="message" name="message" class="form__textarea" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="button contacts__submit">Отправить</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__container">
+      <p class="footer__copyright">&copy; 2024 Company. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script defer src="script.js"></script>
+</body>
+</html>

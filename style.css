@@ -1,0 +1,531 @@
+:root {
+  /* Цветовая палитра (светлая тема) */
+  --color-primary: #4361ee;
+  --color-secondary: #3a0ca3;
+  --color-accent: #f72585;
+  --color-bg: #ffffff;
+  --color-text: #333333;
+  --color-border: #ddd;
+  --color-success: #4bb543;
+  --color-error: #ff3b30;
+
+  /* Тёмная тема */
+  --dark-color-bg: #1a1a2e;
+  --dark-color-text: #e0e0e0;
+  --dark-color-border: #444;
+
+  /* Шрифты */
+  --font-family: 'Arial', sans-serif;
+  --font-size-base: 16px;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  /* Отступы */
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-s: 1rem;
+  --spacing-m: 1.5rem;
+  --spacing-l: 2rem;
+  --spacing-xl: 3rem;
+}
+
+/* Переключение темы */
+#html-theme.dark-theme {
+  --color-bg: var(--dark-color-bg);
+  --color-text: var(--dark-color-text);
+  --color-border: var(--dark-color-border);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-s);
+}
+
+/* Переключатель темы */
+.theme-toggle {
+  position: fixed;
+  top: var(--spacing-s);
+  right: var(--spacing-s);
+  z-index: 1001;
+}
+
+.theme-switch {
+  display: none;
+}
+
+.theme-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+  padding: var(--spacing-xxs) var(--spacing-s);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+}
+
+.theme-icon {
+  font-size: 1.2rem;
+}
+
+.theme-text {
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-normal);
+}
+
+/* Header */
+.header {
+  background-color: var(--color-bg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-s) 0;
+}
+
+.header__logo {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-m);
+}
+
+.nav__link {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color 0.3s;
+}
+
+.nav__link:hover {
+  color: var(--color-primary);
+}
+
+/* Hero */
+.hero {
+  padding: calc(var(--spacing-xl) + 20px) 0;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  text-align: center;
+}
+
+.hero__title {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-s);
+}
+
+.hero__subtitle {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-m);
+  opacity: 0.9;
+}
+
+/* Button */
+.button {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-m);
+  background-color: var(--color-accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: var(--font-weight-bold);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+  background-color: #d62877;
+  transform: translateY(-2px);
+}
+
+/* About */
+.about {
+  padding: var(--spacing-l) 0;
+  background-color: var(--color-bg);
+}
+
+.about__title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-m);
+}
+
+.about__content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about__text {
+  font-size: 1rem;
+  margin-bottom: var(--spacing-m);
+  text-align: justify;
+}
+
+.about__features {
+  list-style: none;
+}
+
+.about__feature {
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Skills */
+.skills {
+  padding: var(--spacing-l) 0;
+  background-color: var(--color-bg);
+}
+
+.skills__title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-m);
+}
+
+.skills__list {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.skill {
+  margin-bottom: var(--spacing-m);
+}
+
+.skill__info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xs);
+}
+
+.skill__name {
+  font-weight: var(--font-weight-bold);
+}
+
+.skill__level {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  width: var(--progress);
+  transition: width 1s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar__fill {
+    transition: none;
+  }
+  .button:hover {
+    transform: none;
+  }
+}
+
+/* Contacts */
+.contacts {
+  padding: var(--spacing-l) 0;
+  background-color: var(--color-bg);
+}
+
+.contacts__title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-m);
+}
+
+.contacts__info {
+  max-width: 500px;
+  margin: 0 auto var(--spacing-m);
+  text-align: center;
+}
+
+.contacts__address,
+.contacts__phone,
+.contacts__email {
+  margin-bottom: var(--spacing-s);
+  font-size: 1rem;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-m);
+}
+
+.form__label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+.form__input,
+.form__textarea {
+  width: 100%;
+  padding: var(--spacing-xs);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form__input:focus,
+.form__textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.contacts__submit {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-bg);
+  padding: var(--spacing-m) 0;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__copyright {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Адаптивность: mobile-first */
+
+/* Брейкпоинт 768px */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-m);
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.2rem;
+  }
+
+  .about__title,
+  .skills__title,
+  .contacts__title {
+    font-size: 2rem;
+  }
+
+  .nav__list {
+    gap: var(--spacing-l);
+  }
+}
+
+/* Брейкпоинт 1440px */
+@media (min-width: 1440px) {
+  .container {
+    padding: 0 var(--spacing-l);
+  }
+
+  .hero__title {
+    font-size: 3rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.3rem;
+  }
+
+  .about__title,
+  .skills__title,
+  .contacts__title {
+    font-size: 2.2rem;
+  }
+
+  .nav__list {
+    gap: var(--spacing-xl);
+  }
+
+  .skills__list {
+    max-width: 800px;
+  }
+}
+
+/* Адаптивность для мобильной версии (до 320px) */
+@media (max-width: 320px) {
+  .container {
+    padding: 0 var(--spacing-xxs);
+  }
+
+  .header__container {
+    flex-direction: column;
+    gap: var(--spacing-s);
+    padding: var(--spacing-xs) 0;
+  }
+
+  .nav__list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-s);
+  }
+
+  .hero {
+    padding: calc(var(--spacing-m) + 10px) 0;
+  }
+
+  .hero__title {
+    font-size: 1.6rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+  }
+
+  .button {
+    padding: var(--spacing-xxs) var(--spacing-s);
+    font-size: 0.9rem;
+  }
+
+  .about__text,
+  .skill__name,
+  .skill__level,
+  .contacts__address,
+  .contacts__phone,
+  .contacts__email {
+    font-size: 0.9rem;
+  }
+
+  .form__input,
+  .form__textarea {
+    padding: var(--spacing-xxs);
+  }
+
+  .contacts__submit {
+    width: 100%;
+  }
+}
+
+/* Стили для переключения темы через CSS */
+#html-theme.dark-theme .theme-icon {
+  content: "☀️";
+}
+
+#html-theme.dark-theme .theme-text {
+  content: "Светлая тема";
+}
+
+/* Улучшение доступности: поддержка prefers-color-scheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--dark-color-bg);
+    --color-text: var(--dark-color-text);
+    --color-border: var(--dark-color-border);
+  }
+}
+
+/* Плавные переходы для всех анимируемых элементов */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Отключение анимаций при prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+
+  .progress-bar__fill {
+    transition: none;
+  }
+
+  .button:hover {
+    transform: none;
+  }
+
+  .hero {
+    animation: none;
+  }
+}
+
+/* Дополнительные стили для прогресса-баров */
+.progress-bar {
+  position: relative;
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Убираем анимацию шimmer при prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar::after {
+    animation: none;
+  }
+}
+
+/* Фиксация для переключателя темы */
+.theme-switch:checked ~ .theme-label .theme-icon::after {
+  content: "☀️";
+}
+
+.theme-switch:checked ~ .theme-label .theme-text::after {
+  content: "Светлая тема";
+}
