@@ -529,3 +529,182 @@ body {
 .theme-switch:checked ~ .theme-label .theme-text::after {
   content: "Светлая тема";
 }
+
+/* Контейнеры и сетка */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-s);
+  width: 100%;
+}
+
+/* Header — используем Flexbox для навигации */
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-s) 0;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-m);
+}
+
+/* Hero — Flexbox для центрирования контента */
+.hero__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-m);
+}
+
+/* About — Grid для распределения контента */
+.about__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Skills — CSS Grid для карточек навыков */
+.skills__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-l);
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+}
+
+.skill-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--spacing-s);
+}
+
+.skill-card__info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Progress bars */
+.progress-bar {
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  width: var(--progress);
+  transition: width 1s ease;
+}
+
+/* Contacts — Grid для формы */
+.contacts__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-l);
+}
+
+.contacts__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xs);
+}
+
+/* Footer */
+.footer__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+/* Адаптивность: mobile-first */
+
+/* Брейкпоинт 768px */
+@media (min-width: 768px) {
+  .skills__grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .contacts__container {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+/* Брейкпоинт 1440px */
+@media (min-width: 1440px) {
+  .container {
+    padding: 0 var(--spacing-l);
+  }
+
+  .skills__grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}
+
+/* Container Queries (экспериментальная поддержка) */
+@container skills__grid (min-width: 600px) {
+  .skill-card {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+@container skills__grid (min-width: 900px) {
+  .skill-card {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+/* Поддержка prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+
+  .progress-bar::after {
+    animation: none;
+  }
+}
+
